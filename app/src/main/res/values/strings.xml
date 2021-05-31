@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">HighAndLow</string>
+    <string name="app_name">High and Low</string>
+    <string name="hit_text">あたり</string>
+    <string name="lost_text">はずれ</string>
+    <string name="next_text">次へ</string>
+    <string name="high_text">High</string>
+    <string name="low_text">Low</string>
+
+    <string name="win_comment">あなたの勝ちです！</string>
+    <string name="lose_comment">あなたの負けです。</string>
+    <string name="draw_comment">引き分け</string>
+
+    <string name="hit_count">あたり：%1$d</string>
+    <string name="lost_count">はずれ：%1$d</string>
 </resources>
