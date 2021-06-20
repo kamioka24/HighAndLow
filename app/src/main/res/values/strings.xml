@@ -3,6 +3,8 @@
     <string name="hit_text">あたり</string>
     <string name="lost_text">はずれ</string>
     <string name="next_text">次へ</string>
+    <string name="back_text">戻る</string>
+    <string name="reset_text">もう一回</string>
     <string name="high_text">High</string>
     <string name="low_text">Low</string>
 
