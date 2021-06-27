@@ -1,5 +1,6 @@
 package com.example.highandlow
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -21,13 +22,13 @@ class MainActivity : AppCompatActivity() {
 
         highBtn.setOnClickListener {
             if (gameStart && !answered) {
-                hignAndLow('h')
+                highAndLow('h')
             }
         }
 
         lowBtn.setOnClickListener {
             if (gameStart && !answered) {
-                hignAndLow('l')
+                highAndLow('l')
             }
         }
 
@@ -35,6 +36,15 @@ class MainActivity : AppCompatActivity() {
             if (gameStart) {
                 drawCard()
             }
+        }
+
+        resetButton.setOnClickListener {
+            allReset()
+        }
+
+        backButton.setOnClickListener {
+            val intent = Intent(this, LaunchActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -49,14 +59,14 @@ class MainActivity : AppCompatActivity() {
         drawCard()
     }
 
-    private fun hignAndLow(answer:Char) {
+    private fun highAndLow(answer:Char) {
         showDroidCard()
         answered = true
         val balance = droidCard - yourCard
 
         // 勝敗判定(1回毎)
         if (balance == 0) {
-            resultText.text = getString(R.string.draw_comment)
+            Toast.makeText(this, R.string.draw_text, Toast.LENGTH_SHORT).show()
         } else if ((balance > 0) && (answer == 'h')) {
             hitCount++
             hitText.text = getString(R.string.hit_count, hitCount)
@@ -125,5 +135,20 @@ class MainActivity : AppCompatActivity() {
         droidCard = (1..13).random()
         Log.d(tag, "droid:" + droidCard)
         answered = false
+    }
+
+    private fun allReset() {
+        hitCount = 0
+        loseCount = 0
+        hitText.text = getString(R.string.hit_count, hitCount)
+        loseText.text = getString(R.string.lost_count, loseCount)
+        resultText.text = ""
+
+        gameStart = true
+
+        showDroidCard()
+        drawCard()
+
+        Toast.makeText(this, R.string.reset_text, Toast.LENGTH_SHORT).show()
     }
 }
