@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.postDelayed
 import kotlinx.android.synthetic.main.activity_launch.*
 
 class LaunchActivity: AppCompatActivity() {
@@ -25,6 +24,12 @@ class LaunchActivity: AppCompatActivity() {
         }
 
         // 8秒後、自動遷移
+        handler.postDelayed(runnable, 8000)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
         handler.postDelayed(runnable, 8000)
     }
 }
